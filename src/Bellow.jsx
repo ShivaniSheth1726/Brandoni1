@@ -1,6 +1,6 @@
 import React from 'react'
 import Accordion from './Accordion.jsx';
-function Bellow({data}) {
+function Bellow({data, showUnderline = false}, isOpen = false, onClick=()=>{}) {
   
   // const accordion=[];
   // data.forEach((obj) => {
@@ -40,13 +40,16 @@ function Bellow({data}) {
 
   return (
     <div>
-      {/* {accordion} */}
+    
       {data.map((obj) => {
         return (
           <Accordion 
             key={crypto.randomUUID()}
             title={obj.title} 
             description={obj.description} 
+            showUnderline={showUnderline}
+            isOpen={false}
+            onClick={() => onClick(obj.title)}
             />
         );
       })}
